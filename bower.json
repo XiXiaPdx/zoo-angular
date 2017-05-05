@@ -1,0 +1,20 @@
+{
+  "name": "ng-zoo",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.98.2"
+  },
+  "authors": [
+    "Xi Xia <triplextension@gmail.com>"
+  ]
+}

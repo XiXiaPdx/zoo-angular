@@ -1,0 +1,23 @@
+
+body{
+min-height: 100%;
+
+}
+html{
+  min-height: 100%;
+}
+
+#rootContainer {
+  background-image: url('../../build/images/wood-back.png');
+}
+
+
+.mat-sidenav.mat-sidenav-push{
+  background: white;
+}
+
+.add-animal{
+  height:1000px;
+  background-color: transparent;
+
+}
