@@ -6,9 +6,11 @@ declare var jQuery: any;
 @Component({
   selector: 'filtered-animals',
   template: `
-  <md-grid-list cols="2" rowHeight="4:7" gutterSize="20px">
-  <md-grid-tile class="" *ngFor="let animal of filteredAnimalList; let i = index">
-    <md-card class="scale-transition scale-in">
+  <div class="row scale-transition {{test}}">
+  <button class="btn btn-large edit" (click)="disappear()"   tabindex="0"> Edit Details</button>
+  <md-grid-list  cols="2" rowHeight="4:7" gutterSize="20px">
+  <md-grid-tile  *ngFor="let animal of filteredAnimalList; let i = index">
+    <md-card >
   <md-card-title> {{animal.name}} - <span class="speciesDisplay">{{animal.species}}
 </span>	</md-card-title>
   <img class="materialboxed responsive-img" src="{{animal.imageUrl}}" tabindex="0" alt="{{animal.name}} the {{animal.species}}">
@@ -28,16 +30,37 @@ declare var jQuery: any;
     </md-card>
   </md-grid-tile>
     </md-grid-list>
+    </div>
   `
 })
 
 export class FilteredAnimalsComponent {
   @Input () filteredAnimalList: Animal [];
 
- staffUser: boolean = false;
+test: string;
 
   ngAfterViewInit() {
      jQuery('.materialboxed').materialbox();
    }
+
+disappear(){
+  var self=this;
+  var replace = function(){
+    self.test="scale-in";
+    console.log("step 2");
+  }
+  var remove = function () {
+    return new Promise (function(resolve,reject){
+      self.test="scale-out";
+      console.log("step 1");
+          resolve();
+          reject();
+        });
+  }
+  remove().then(function(){
+    replace();
+  });
+
+}
 
 }

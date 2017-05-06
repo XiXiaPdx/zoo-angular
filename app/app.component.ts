@@ -8,7 +8,8 @@ declare var jQuery: any;
   template: `
   <md-sidenav-container class="add-animal">
   <md-sidenav #sidenav class="example-sidenav" mode="over" tabindex="0">
-  <add-animal></add-animal>
+  <add-animal (newAnimalSender)="addNewAnimal($event)" (sideNavCloseSender)="sidenav.close()"></add-animal>
+  <edit-animal *ngIf="editAnimal"></edit-animal>
   </md-sidenav>
   <div class="row" id="titleHeader">
     <h1 tabindex="0"> Zoo of Mythical Creatures </h1>
@@ -18,7 +19,6 @@ declare var jQuery: any;
 
   <div class="row scale-transition {{scale}}">
     <div class="col s8 offset-s2">
-    <div> </div>
     <filtered-animals  [filteredAnimalList]="masterAnimalList"></filtered-animals>
     </div>
     <div class="col s2">
@@ -37,24 +37,13 @@ export class AppComponent {
     new Animal ("Rabbit", "Lt. Judy Hopps", 4, "carrots", "Zootopia", 2, "female","doing the right thing","crime", "https://www.imore.com/sites/imore.com/files/styles/larger/public/field/image/2016/06/zootopia.jpg?itok=JYHDgbvL")
   ];
 
+editAnimal: boolean = false;
+ scale:string;
 
+addNewAnimal(animal){
+  this.masterAnimalList.push(animal);
 
- scale:string="scale-out";
-
-
-disappear(){
-  this.scale = "scale-out";
-  }
-
-  appear () {
-    this.scale = "scale-in";
-  }
-
-
-  ngAfterViewInit() {
-     jQuery('.collapsible').collapsible();
-     this.scale="scale-in";
-   }
+}
 
    ngOnInit (){
      var min = Math.ceil(0);

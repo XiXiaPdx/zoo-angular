@@ -8,11 +8,12 @@ import { FormsModule } from '@angular/forms';
 import {FilteredAnimalsComponent} from './filteredAnimals.component';
 import {FilteringToolComponent} from './filteringTool.component';
 import {AddAnimalsComponent} from './addAnimal.component';
+import {EditAnimalComponent} from './editAnimal.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MaterialModule.forRoot(),
 ],
-  declarations: [ AppComponent, FilteredAnimalsComponent, FilteringToolComponent, AddAnimalsComponent],
+  declarations: [ AppComponent, FilteredAnimalsComponent, FilteringToolComponent, AddAnimalsComponent, EditAnimalComponent],
   bootstrap: [ AppComponent ]
 })
 
