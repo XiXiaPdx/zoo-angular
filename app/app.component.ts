@@ -7,14 +7,14 @@ declare var jQuery: any;
   selector: 'app-root',
   template: `
   <md-sidenav-container class="add-animal">
-  <md-sidenav #sidenav class="example-sidenav" mode="push" tabindex="0">
-  <h1> stuff</h1>
+  <md-sidenav #sidenav class="example-sidenav" mode="over" tabindex="0">
+  <add-animal></add-animal>
   </md-sidenav>
   <div class="row" id="titleHeader">
     <h1 tabindex="0"> Zoo of Mythical Creatures </h1>
   </div>
-  <button md-button (click)="sidenav.open()" id="addAnimalButton" tabindex="0"> Add New Animal</button>
-    <button class="btn btn-large" (click)="disappear()"   tabindex="0"> Disappear</button>
+  <button class="btn btn-large" (click)="sidenav.open()"  tabindex="0"> Add New Animal</button>
+
 
   <div class="row scale-transition {{scale}}">
     <div class="col s8 offset-s2">

@@ -7,11 +7,12 @@ import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import {FilteredAnimalsComponent} from './filteredAnimals.component';
 import {FilteringToolComponent} from './filteringTool.component';
+import {AddAnimalsComponent} from './addAnimal.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MaterialModule.forRoot(),
 ],
-  declarations: [ AppComponent, FilteredAnimalsComponent, FilteringToolComponent],
+  declarations: [ AppComponent, FilteredAnimalsComponent, FilteringToolComponent, AddAnimalsComponent],
   bootstrap: [ AppComponent ]
 })
 

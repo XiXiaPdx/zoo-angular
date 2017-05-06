@@ -72,9 +72,9 @@ html{
 }
 
 
-.mat-sidenav.mat-sidenav-push{
-  background: transparent;
-  width: 75%;
+.mat-sidenav.mat-sidenav-over{
+  background: #010938;
+  width: 33%;
 }
 
 .add-animal{
