@@ -37,7 +37,10 @@ import {Animal} from './Animal.model';
     <div class="input-field" >
      <input  placeholder="ImageUrl"  type="text" class="validate" #imageUrl>
     </div>
-<button class="btn btn-large"  (click)="addNewAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, likes.value, dislikes.value, sex.value, imageUrl.value); closeSideNav()" tabindex="0">Submit New Animal</button>  </md-card>
+<button class="btn btn-large"  (click)="addNewAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, likes.value, dislikes.value, sex.value, imageUrl.value); closeSideNav()" tabindex="0">Submit</button>
+<button class="btn btn-large"  (click)="closeSideNav()" tabindex="0">Close</button>
+
+  </md-card>
   `
 })
 
@@ -47,7 +50,7 @@ export class AddAnimalsComponent {
 
 addNewAnimal(species: string, name: string, age: string, diet: string, location: string, caretakers: string, likes: string, dislikes: string, sex: string, imageUrl:string )  {
 
-  var newAnimal = new Animal (species, name, parseInt(age), diet, location, parseInt(caretakers), likes, dislikes, sex, imageUrl);
+  var newAnimal = new Animal (species, name, parseInt(age), diet, location, parseInt(caretakers),  sex, likes, dislikes,imageUrl);
   this.newAnimalSender.emit(newAnimal);
 }
 

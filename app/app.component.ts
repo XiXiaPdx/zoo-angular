@@ -8,18 +8,18 @@ declare var jQuery: any;
   template: `
   <md-sidenav-container class="add-animal">
   <md-sidenav #sidenav class="example-sidenav" mode="over" tabindex="0">
-  <add-animal (newAnimalSender)="addNewAnimal($event)" (sideNavCloseSender)="sidenav.close()"></add-animal>
-  <edit-animal *ngIf="editAnimal"></edit-animal>
+  <add-animal *ngIf="addAnimal" (newAnimalSender)="addNewAnimal($event)" (sideNavCloseSender)="sidenav.close()"></add-animal>
+  <edit-animal *ngIf="editAnimal" [editThisAnimal] = "selectedEditAnimal" (closeSideNavSender)="sidenav.close()" (updateAnimalSender)="updateAnimal($event)"></edit-animal>
   </md-sidenav>
   <div class="row" id="titleHeader">
     <h1 tabindex="0"> Zoo of Mythical Creatures </h1>
   </div>
-  <button class="btn btn-large" (click)="sidenav.open()"  tabindex="0"> Add New Animal</button>
+  <button class="btn btn-large" (click)="openAddAnimalForm(); sidenav.open()"  tabindex="0"> Add New Animal</button>
 
 
   <div class="row scale-transition {{scale}}">
     <div class="col s8 offset-s2">
-    <filtered-animals  [filteredAnimalList]="masterAnimalList"></filtered-animals>
+    <filtered-animals  [filteredAnimalList]="masterAnimalList" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
     </div>
     <div class="col s2">
       <filter-tool></filter-tool>
@@ -38,20 +38,68 @@ export class AppComponent {
   ];
 
 editAnimal: boolean = false;
- scale:string;
+addAnimal: boolean = false;
+scale:string;
+indexOfEditAnimal: number;
+selectedEditAnimal: Animal []=null ;
+
+openAddAnimalForm(){
+  this.editAnimal = false;
+  this.addAnimal = true;
+}
+
+openEditAnimalForm(updatePackage){
+  this.editAnimal = true;
+  this.addAnimal = false;
+  this.indexOfEditAnimal = updatePackage[0];
+  this.selectedEditAnimal = updatePackage[1];
+}
 
 addNewAnimal(animal){
   this.masterAnimalList.push(animal);
-
+  var self=this;
+  var appear = function(){
+    self.scale="scale-in";
+  }
+  var disappear = function () {
+    return new Promise (function(resolve,reject){
+      self.scale="scale-out";
+          resolve();
+          reject();
+        });
+  }
+  disappear().then(function(){
+    setTimeout(function(){
+      appear();
+    }, 500);
+  });
 }
 
+updateAnimal (updateThisAnimal){
+  this.masterAnimalList[this.indexOfEditAnimal]=updateThisAnimal;
+
+  var self=this;
+  var appear = function(){
+    self.scale="scale-in";
+  }
+  var disappear = function () {
+    return new Promise (function(resolve,reject){
+      self.scale="scale-out";
+          resolve();
+          reject();
+        });
+  }
+  disappear().then(function(){
+    setTimeout(function(){
+      appear();
+    }, 500);
+  });
+}
    ngOnInit (){
      var min = Math.ceil(0);
   var max = Math.floor(this.masterAnimalList.length);
   var index = Math.floor(Math.random() * (max - min)) + min;
-     console.log("when?");
 
    }
-
 
 }

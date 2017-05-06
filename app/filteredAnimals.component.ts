@@ -6,8 +6,7 @@ declare var jQuery: any;
 @Component({
   selector: 'filtered-animals',
   template: `
-  <div class="row scale-transition {{test}}">
-  <button class="btn btn-large edit" (click)="disappear()"   tabindex="0"> Edit Details</button>
+  <div class="row">
   <md-grid-list  cols="2" rowHeight="4:7" gutterSize="20px">
   <md-grid-tile  *ngFor="let animal of filteredAnimalList; let i = index">
     <md-card >
@@ -26,7 +25,7 @@ declare var jQuery: any;
     <i class="small material-icons">thumb_down</i>
 {{animal.dislikes}}
 </md-card-content>
-  <button class="btn btn-large edit" (click)="disappear()"   tabindex="0"> Edit Details</button></div>
+  <button class="btn btn-large edit" (click)="openEditSideNav(i, animal)"   tabindex="0"> Edit Details</button></div>
     </md-card>
   </md-grid-tile>
     </md-grid-list>
@@ -36,31 +35,15 @@ declare var jQuery: any;
 
 export class FilteredAnimalsComponent {
   @Input () filteredAnimalList: Animal [];
-
-test: string;
+  @Output () editAnimalSender = new EventEmitter;
 
   ngAfterViewInit() {
      jQuery('.materialboxed').materialbox();
    }
 
-disappear(){
-  var self=this;
-  var replace = function(){
-    self.test="scale-in";
-    console.log("step 2");
-  }
-  var remove = function () {
-    return new Promise (function(resolve,reject){
-      self.test="scale-out";
-      console.log("step 1");
-          resolve();
-          reject();
-        });
-  }
-  remove().then(function(){
-    replace();
-  });
-
-}
+   openEditSideNav(index, animal){
+     var updatePackage = [index, animal];
+     this.editAnimalSender.emit(updatePackage);
+   }
 
 }
