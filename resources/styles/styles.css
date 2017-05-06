@@ -51,6 +51,17 @@ html{
   font-size: 20px;
 }
 
+.edit {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 3px;
+  border-color: #ba6a01;
+  background-color: #ba6a01;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .mat-sidenav-container {
   color: white;
   font-size: 18px;
@@ -82,4 +93,16 @@ html{
 
 .speciesDisplay{
   font-size:24px;
+}
+
+md-card-content.mat-card-content{
+  margin-top: 1em;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  font-size: 24px;
+}
+
+.gender {
+  font-size: 30px;
+
 }

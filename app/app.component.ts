@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, AfterViewInit, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewInit, OnInit} from '@angular/core';
 import {Animal} from './Animal.model';
 
 declare var jQuery: any;
@@ -12,14 +12,14 @@ declare var jQuery: any;
   </md-sidenav>
   <div class="row" id="titleHeader">
     <h1 tabindex="0"> Zoo of Mythical Creatures </h1>
-
   </div>
   <button md-button (click)="sidenav.open()" id="addAnimalButton" tabindex="0"> Add New Animal</button>
     <button class="btn btn-large" (click)="disappear()"   tabindex="0"> Disappear</button>
 
-  <div class="row">
+  <div class="row scale-transition {{scale}}">
     <div class="col s8 offset-s2">
-    <filtered-animals [filteredAnimalList]="masterAnimalList"></filtered-animals>
+    <div> </div>
+    <filtered-animals  [filteredAnimalList]="masterAnimalList"></filtered-animals>
     </div>
     <div class="col s2">
       <filter-tool></filter-tool>
@@ -39,24 +39,29 @@ export class AppComponent {
 
 
 
- onOff:string;
+ scale:string="scale-out";
 
 
 disappear(){
-  this.onOff = "scale-out";
+  this.scale = "scale-out";
   }
 
   appear () {
-    this.onOff = "scale-in";
-
+    this.scale = "scale-in";
   }
+
 
   ngAfterViewInit() {
      jQuery('.collapsible').collapsible();
+     this.scale="scale-in";
    }
 
    ngOnInit (){
+     var min = Math.ceil(0);
+  var max = Math.floor(this.masterAnimalList.length);
+  var index = Math.floor(Math.random() * (max - min)) + min;
      console.log("when?");
+
    }
 
 
