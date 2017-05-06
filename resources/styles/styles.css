@@ -69,3 +69,17 @@ html{
 .add-animal{
   background-color: transparent;
 }
+
+.mat-card{
+  background: none;
+  color: white;
+  border-bottom: 4px solid white;
+
+}
+.mat-card-title{
+  font-size: 32px !important;
+}
+
+.speciesDisplay{
+  font-size:24px;
+}
