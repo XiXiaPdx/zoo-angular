@@ -1,10 +1,59 @@
 
-body{
+body {
 min-height: 100%;
+
+
+background: linear-gradient(270deg, #042b21, #010938);
+background-size: 400% 400%;
+
+-webkit-animation: AnimationName 46s ease infinite;
+-moz-animation: AnimationName 46s ease infinite;
+animation: AnimationName 46s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 73%}
+    50%{background-position:100% 28%}
+    100%{background-position:0% 73%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 73%}
+    50%{background-position:100% 28%}
+    100%{background-position:0% 73%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 73%}
+    50%{background-position:100% 28%}
+    100%{background-position:0% 73%}
+}
+
 
 }
 html{
   min-height: 100%;
+
+}
+
+:focus {
+  outline:none;border:3px solid red;
+}
+
+
+#titleHeader{
+  text-align: center;
+}
+
+
+
+.btn {
+  background: transparent;
+  border: solid;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.mat-sidenav-container {
+  color: white;
+  font-size: 18px;
 }
 
 #rootContainer {
@@ -13,11 +62,10 @@ html{
 
 
 .mat-sidenav.mat-sidenav-push{
-  background: white;
+  background: transparent;
+  width: 75%;
 }
 
 .add-animal{
-  height:1000px;
   background-color: transparent;
-
 }
