@@ -43,6 +43,8 @@ export class FilteredAnimalsComponent {
 
    openEditSideNav(index, animal){
      var updatePackage = [index, animal];
+     var element_to_scroll_to = document.getElementById('titleHeader');
+     element_to_scroll_to.scrollIntoView();
      this.editAnimalSender.emit(updatePackage);
    }
 
