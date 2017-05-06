@@ -49,6 +49,7 @@ html{
   border: solid;
   border-radius: 10px;
   font-size: 20px;
+
 }
 
 .edit {
@@ -100,4 +101,24 @@ md-card-content.mat-card-content{
   line-height: 1.5;
   letter-spacing: 2px;
   font-size: 24px;
+}
+
+.ageFilter {
+  display: inline-flex;
+  flex-direction: column;
+}
+.ageRadioButton {
+  margin:10px;
+  color: white;
+  font-size: 30px;
+}
+
+.mat-radio-label-content {
+  color: white;
+}
+
+.mat-radio-outer-circle{
+  border-color: white;
+  height: 30px;
+  width: 30px;
 }

@@ -7,7 +7,7 @@ declare var jQuery: any;
   selector: 'filtered-animals',
   template: `
   <div class="row">
-  <md-grid-list  cols="2" rowHeight="4:7" gutterSize="20px">
+  <md-grid-list  cols="2" rowHeight="4:6" gutterSize="20px">
   <md-grid-tile  *ngFor="let animal of filteredAnimalList; let i = index">
     <md-card >
   <md-card-title> {{animal.name}} - <span class="speciesDisplay">{{animal.species}}

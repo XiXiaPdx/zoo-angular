@@ -9,11 +9,13 @@ import {FilteredAnimalsComponent} from './filteredAnimals.component';
 import {FilteringToolComponent} from './filteringTool.component';
 import {AddAnimalsComponent} from './addAnimal.component';
 import {EditAnimalComponent} from './editAnimal.component';
+import {FilterByAgePipe} from './filterByAge.pipe';
+
 
 @NgModule({
   imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MaterialModule.forRoot(),
 ],
-  declarations: [ AppComponent, FilteredAnimalsComponent, FilteringToolComponent, AddAnimalsComponent, EditAnimalComponent],
+  declarations: [ AppComponent, FilteredAnimalsComponent, FilteringToolComponent, AddAnimalsComponent, EditAnimalComponent, FilterByAgePipe],
   bootstrap: [ AppComponent ]
 })
 

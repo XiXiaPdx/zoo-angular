@@ -13,16 +13,16 @@ declare var jQuery: any;
   </md-sidenav>
   <div class="row" id="titleHeader">
     <h1 tabindex="0"> Zoo of Mythical Creatures </h1>
+        <button class="btn" (click)="openAddAnimalForm(); sidenav.open()"  tabindex="0"> Add New Animal</button>
   </div>
-  <button class="btn btn-large" (click)="openAddAnimalForm(); sidenav.open()"  tabindex="0"> Add New Animal</button>
-
 
   <div class="row scale-transition {{scale}}">
-    <div class="col s8 offset-s2">
-    <filtered-animals  [filteredAnimalList]="masterAnimalList" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
+    <div class="col s9  offset-s1">
+    <filtered-animals  [filteredAnimalList]="masterAnimalList|filterByAge:age:youngerOlder" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
     </div>
     <div class="col s2">
-      <filter-tool></filter-tool>
+
+      <filter-tool (filterSender)="filterMasterList($event)"></filter-tool>
     </div>
   </div>
   </md-sidenav-container>
@@ -42,6 +42,8 @@ addAnimal: boolean = false;
 scale:string;
 indexOfEditAnimal: number;
 selectedEditAnimal: Animal []=null ;
+age:string="all";
+youngerOlder:string;
 
 openAddAnimalForm(){
   this.editAnimal = false;
@@ -53,6 +55,11 @@ openEditAnimalForm(updatePackage){
   this.addAnimal = false;
   this.indexOfEditAnimal = updatePackage[0];
   this.selectedEditAnimal = updatePackage[1];
+}
+
+filterMasterList (filterPackage){
+  this.youngerOlder = filterPackage [1];
+  this.age = filterPackage[0];
 }
 
 addNewAnimal(animal){
