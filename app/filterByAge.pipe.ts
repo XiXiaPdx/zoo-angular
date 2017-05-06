@@ -18,6 +18,10 @@ export class FilterByAgePipe implements PipeTransform {
       output = input.filter(function (animal) {
           return animal.age < age;
       });
+    } else {
+      output = input.filter(function (animal) {
+          return animal.age > age;
+      });
     }
       return output;
   }

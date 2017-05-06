@@ -16,8 +16,8 @@ declare var jQuery: any;
         <button class="btn" (click)="openAddAnimalForm(); sidenav.open()"  tabindex="0"> Add New Animal</button>
   </div>
 
-  <div class="row scale-transition {{scale}}">
-    <div class="col s9  offset-s1">
+  <div class="row ">
+    <div class="col s9  offset-s1 scale-transition {{scale}}">
     <filtered-animals  [filteredAnimalList]="masterAnimalList|filterByAge:age:youngerOlder" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
     </div>
     <div class="col s2">
@@ -60,6 +60,22 @@ openEditAnimalForm(updatePackage){
 filterMasterList (filterPackage){
   this.youngerOlder = filterPackage [1];
   this.age = filterPackage[0];
+  var self=this;
+  var appear = function(){
+    self.scale="scale-in";
+  }
+  var disappear = function () {
+    return new Promise (function(resolve,reject){
+      self.scale="scale-out";
+          resolve();
+          reject();
+        });
+  }
+  disappear().then(function(){
+    setTimeout(function(){
+      appear();
+    }, 500);
+  });
 }
 
 addNewAnimal(animal){
