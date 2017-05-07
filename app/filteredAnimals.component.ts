@@ -6,14 +6,13 @@ declare var jQuery: any;
 @Component({
   selector: 'filtered-animals',
   template: `
-
-  <md-grid-list  cols="2" rowHeight="4:6" gutterSize="20px">
-  <md-grid-tile  *ngFor="let animal of filteredAnimalList; let i = index">
+  <md-grid-list  cols="2" rowHeight="4:6" gutterSize="20px" >
+  <md-grid-tile  *ngFor="let animal of filteredAnimalList; let i = index" >
     <md-card >
-  <md-card-title> {{animal.name}} - <span class="speciesDisplay">{{animal.species}}
+  <md-card-title > {{animal.name}} - <span class="speciesDisplay">{{animal.species}}
 </span>	</md-card-title>
-  <img class="materialboxed responsive-img" src="{{animal.imageUrl}}" tabindex="0" alt="{{animal.name}} the {{animal.species}}">
-<md-card-content>
+  <img class="materialboxed responsive-img" src="{{animal.imageUrl}}" tabindex="0" alt="{{animal.name}} the {{animal.species}} is  {{i+1}} of {{filteredAnimalList.length}} animals listed">
+<md-card-content >
 {{animal.name}} is {{animal.age}} years old, feeds on {{animal.diet}}, and resides at {{animal.location}}.
 </md-card-content>
 <div class="row">
@@ -22,7 +21,7 @@ declare var jQuery: any;
     {{animal.likes}}
     </md-card-content>
     <md-card-content>
-    <i class="small material-icons dislike" aria-label="this animal dislikes the following items">thumb_down</i>
+    <i class="small material-icons dislike" aria-label="this animal dislikes the following items" >thumb_down</i>
 {{animal.dislikes}}
 </md-card-content>
   <button class="btn btn-large edit" (click)="openEditSideNav(i, animal)"   tabindex="0" [attr.aria-label]="'edit '+animal.name+' details'"> Edit Details</button></div>

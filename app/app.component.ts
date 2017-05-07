@@ -59,69 +59,33 @@ openEditAnimalForm(updatePackage){
 filterMasterList (filterPackage){
   this.youngerOlder = filterPackage [1];
   this.age = filterPackage[0];
-  var self=this;
-  var appear = function(){
-    self.scale="scale-in";
-  }
-  var disappear = function () {
-    return new Promise (function(resolve,reject){
-      self.scale="scale-out";
-          resolve();
-          reject();
-        });
-  }
-  disappear().then(function(){
-    setTimeout(function(){
-      appear();
-    }, 500);
-  });
+  this.transitionInOut();
 }
 
 addNewAnimal(animal){
   this.masterAnimalList.unshift(animal);
-  var self=this;
-  var appear = function(){
-    self.scale="scale-in";
-  }
-  var disappear = function () {
-    return new Promise (function(resolve,reject){
-      self.scale="scale-out";
-          resolve();
-          reject();
-        });
-  }
-  disappear().then(function(){
-    setTimeout(function(){
-      appear();
-    }, 500);
-  });
+  this.transitionInOut();
+
 }
 
 updateAnimal (updateThisAnimal){
   this.masterAnimalList[this.indexOfEditAnimal]=updateThisAnimal;
+  this.transitionInOut();
 
+}
+
+transitionInOut(){
   var self=this;
   var appear = function(){
     self.scale="scale-in";
   }
   var disappear = function () {
-    return new Promise (function(resolve,reject){
       self.scale="scale-out";
-          resolve();
-          reject();
-        });
   }
-  disappear().then(function(){
+  disappear();
     setTimeout(function(){
       appear();
     }, 500);
-  });
 }
-   ngOnInit (){
-     var min = Math.ceil(0);
-  var max = Math.floor(this.masterAnimalList.length);
-  var index = Math.floor(Math.random() * (max - min)) + min;
-
-   }
 
 }
