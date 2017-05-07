@@ -7,21 +7,20 @@ declare var jQuery: any;
   selector: 'app-root',
   template: `
   <md-sidenav-container class="add-animal">
-  <md-sidenav #sidenav class="example-sidenav" mode="over" tabindex="0">
+  <md-sidenav #sidenav class="example-sidenav" mode="over">
   <add-animal *ngIf="addAnimal" (newAnimalSender)="addNewAnimal($event)" (sideNavCloseSender)="sidenav.close()"></add-animal>
   <edit-animal *ngIf="editAnimal" [editThisAnimal] = "selectedEditAnimal" (closeSideNavSender)="sidenav.close()" (updateAnimalSender)="updateAnimal($event)"></edit-animal>
   </md-sidenav>
   <div class="row" id="titleHeader">
     <h1 tabindex="0"> Zoo of Mythical Creatures </h1>
-        <button class="btn" (click)="openAddAnimalForm(); sidenav.open()"  tabindex="0"> Add New Animal</button>
+        <button class="btn" (click)="openAddAnimalForm(); sidenav.open()"  tabindex="0" aria-label="Add New Animal"> Add New Animal</button>
   </div>
 
-  <div class="row ">
+  <div class="row">
     <div class="col s9  scale-transition {{scale}}">
     <filtered-animals  [filteredAnimalList]="masterAnimalList|filterByAge:age:youngerOlder" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
     </div>
     <div class="col s3" id="filterColumn">
-
       <filter-tool (filterSender)="filterMasterList($event)"></filter-tool>
     </div>
   </div>

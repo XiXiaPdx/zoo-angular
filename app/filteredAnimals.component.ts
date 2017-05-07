@@ -6,7 +6,7 @@ declare var jQuery: any;
 @Component({
   selector: 'filtered-animals',
   template: `
-  <div class="row">
+
   <md-grid-list  cols="2" rowHeight="4:6" gutterSize="20px">
   <md-grid-tile  *ngFor="let animal of filteredAnimalList; let i = index">
     <md-card >
@@ -18,18 +18,18 @@ declare var jQuery: any;
 </md-card-content>
 <div class="row">
     <md-card-content>
-    <i class="small material-icons like">thumb_up</i>
+    <i class="small material-icons like" aria-label="this animal likes the following items">thumb_up</i>
     {{animal.likes}}
     </md-card-content>
     <md-card-content>
-    <i class="small material-icons dislike">thumb_down</i>
+    <i class="small material-icons dislike" aria-label="this animal dislikes the following items">thumb_down</i>
 {{animal.dislikes}}
 </md-card-content>
-  <button class="btn btn-large edit" (click)="openEditSideNav(i, animal)"   tabindex="0"> Edit Details</button></div>
+  <button class="btn btn-large edit" (click)="openEditSideNav(i, animal)"   tabindex="0" [attr.aria-label]="'edit '+animal.name+' details'"> Edit Details</button></div>
     </md-card>
   </md-grid-tile>
     </md-grid-list>
-    </div>
+
   `
 })
 
