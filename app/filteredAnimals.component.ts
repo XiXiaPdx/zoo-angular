@@ -18,11 +18,11 @@ declare var jQuery: any;
 </md-card-content>
 <div class="row">
     <md-card-content>
-    <i class="small material-icons">thumb_up</i>
+    <i class="small material-icons like">thumb_up</i>
     {{animal.likes}}
     </md-card-content>
     <md-card-content>
-    <i class="small material-icons">thumb_down</i>
+    <i class="small material-icons dislike">thumb_down</i>
 {{animal.dislikes}}
 </md-card-content>
   <button class="btn btn-large edit" (click)="openEditSideNav(i, animal)"   tabindex="0"> Edit Details</button></div>

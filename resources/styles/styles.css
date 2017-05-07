@@ -49,16 +49,15 @@ html{
   border: solid;
   border-radius: 10px;
   font-size: 20px;
-
+  color: yellow;
+  border-color: yellow;
 }
 
 .edit {
-  color: white;
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 3px;
-  border-color: #ba6a01;
-  background-color: #ba6a01;
+  background-color: transparent;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -121,4 +120,20 @@ md-card-content.mat-card-content{
   border-color: white;
   height: 30px;
   width: 30px;
+}
+
+.like{
+  color: #f94fff;
+}
+
+.dislike{
+  color: red;
+}
+
+.mat-slider-vertical{
+height: 156px;
+}
+
+#filterColumn{
+  margin-top: 20px;
 }

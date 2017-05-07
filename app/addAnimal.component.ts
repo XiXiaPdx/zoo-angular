@@ -5,6 +5,7 @@ import {Animal} from './Animal.model';
 @Component({
   selector: 'add-animal',
   template: `
+  <form>
   <md-card id="addAnimalForm">
     <md-card-title>	 New Animal Details  </md-card-title>
     <div class="input-field" >
@@ -14,7 +15,7 @@ import {Animal} from './Animal.model';
      <input  placeholder = "Animal Species"  type="text" class="validate" #species>
     </div>
     <div class="input-field" >
-     <input  placeholder="Age"  type="number" min="0" class="validate" #age>
+     <input  placeholder="Age" type="number" min="0" class="validate" #age>
     </div>
     <div class="input-field" >
      <input  placeholder="Diet"  type="text" class="validate" #diet>
@@ -35,12 +36,13 @@ import {Animal} from './Animal.model';
      <input  placeholder="Sex"  type="text" class="validate" #sex>
     </div>
     <div class="input-field" >
-     <input  placeholder="ImageUrl"  type="text" class="validate" #imageUrl>
+     <input  value="http://www.supercoloring.com/sites/default/files/silhouettes/2015/07/sea-monster-grey-silhouette.svg"  type="text" class="validate" #imageUrl>
     </div>
 <button class="btn btn-large"  (click)="addNewAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, likes.value, dislikes.value, sex.value, imageUrl.value); closeSideNav()" tabindex="0">Submit</button>
 <button class="btn btn-large"  (click)="closeSideNav()" tabindex="0">Close</button>
 
   </md-card>
+</form>
   `
 })
 

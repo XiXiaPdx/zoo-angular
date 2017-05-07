@@ -17,10 +17,10 @@ declare var jQuery: any;
   </div>
 
   <div class="row ">
-    <div class="col s9  offset-s1 scale-transition {{scale}}">
+    <div class="col s9  scale-transition {{scale}}">
     <filtered-animals  [filteredAnimalList]="masterAnimalList|filterByAge:age:youngerOlder" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
     </div>
-    <div class="col s2">
+    <div class="col s3" id="filterColumn">
 
       <filter-tool (filterSender)="filterMasterList($event)"></filter-tool>
     </div>
@@ -79,7 +79,7 @@ filterMasterList (filterPackage){
 }
 
 addNewAnimal(animal){
-  this.masterAnimalList.push(animal);
+  this.masterAnimalList.unshift(animal);
   var self=this;
   var appear = function(){
     self.scale="scale-in";
