@@ -137,3 +137,17 @@ height: 156px;
 #filterColumn{
   margin-top: 20px;
 }
+
+.input-field label{
+  color: white;
+}
+
+.input-field label:not(.label-icon).active {
+  font-size: 1rem;
+}
+
+.sexRadio{
+  margin-bottom:60px;
+  margin-top: 20px;
+  text-align: center;
+}
