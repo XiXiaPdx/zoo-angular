@@ -16,9 +16,9 @@ import {Animal} from './Animal.model';
     <button class="btn" (click)="filterByAge(selectedAnimalAge, 'older')" [attr.aria-label]="'Show animals older than '+selectedAnimalAge+' years'"  tabindex="0"> Older</button>
     </div>
   </div>
-   <h5 tabindex="0" [attr.aria-label]="'Current slider number is '+selectedAnimalAge"> Selected age: {{selectedAnimalAge}}</h5>
+  <h5 tabindex="0" [attr.aria-label]="'Current slider number is '+selectedAnimalAge"> Selected age: {{selectedAnimalAge}}</h5>
 
-   <button class="btn" (click)="filterByAge('0', 'older')" [attr.aria-label]="'Show All Animals'" tabindex="0"> All Animals</button>
+  <button class="btn" (click)="filterByAge('0', 'older')" [attr.aria-label]="'Show All Animals'" tabindex="0"> All Animals</button>
   `
 })
 
@@ -28,15 +28,14 @@ export class FilteringToolComponent {
   selectedAnimalAge:string = "5000";
   youngerOlder: string;
 
-onInputChange(event: any){
-  this.selectedAnimalAge = event.value;
-}
-
- displaySearchAge(age){
-   this.selectedAnimalAge = age;
- }
- filterByAge(filterAge, value){
-   var filterPackage = [filterAge,this.youngerOlder=value];
-   this.filterSender.emit(filterPackage);
- }
+  onInputChange(event: any){
+    this.selectedAnimalAge = event.value;
+  }
+  displaySearchAge(age){
+    this.selectedAnimalAge = age;
+  }
+  filterByAge(filterAge, value){
+    var filterPackage = [filterAge,this.youngerOlder=value];
+    this.filterSender.emit(filterPackage);
+  }
 }

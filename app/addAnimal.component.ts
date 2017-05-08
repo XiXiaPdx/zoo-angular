@@ -5,7 +5,7 @@ import {Animal} from './Animal.model';
 @Component({
   selector: 'add-animal',
   template: `
-  <form>
+
   <md-card id="addAnimalForm" >
     <md-card-title tabindex="0" aria-label="New Animal Details Form">	 New Animal Details  </md-card-title>
     <div class="input-field" >
@@ -38,11 +38,10 @@ import {Animal} from './Animal.model';
     <div class="input-field" >
      <input  value="http://www.supercoloring.com/sites/default/files/silhouettes/2015/07/sea-monster-grey-silhouette.svg"  tabindex="0" type="text" class="validate" #imageUrl>
     </div>
-<button class="btn btn-large"  (click)="addNewAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, likes.value, dislikes.value, sex.value, imageUrl.value); closeSideNav()" tabindex="0" [attr.aria-label]="'Submit Form For New Animal'">Submit</button>
-<button class="btn btn-large"  (click)="closeSideNav()" tabindex="0" [attr.aria-label]="'Close Form'">Close</button>
-
+    <button class="btn btn-large"  (click)="addNewAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, likes.value, dislikes.value, sex.value, imageUrl.value); closeSideNav()" tabindex="0" [attr.aria-label]="'Submit Form For New Animal'">Submit</button>
+    <button class="btn btn-large"  (click)="closeSideNav()" tabindex="0" [attr.aria-label]="'Close Form'">Close</button>
   </md-card>
-</form>
+
   `
 })
 

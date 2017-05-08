@@ -1,12 +1,28 @@
-# Zoo of Mythical Creatures
+![Zoo of Mythical Creatures](./resources/images/zooheader.jpg)
 
 This is an Angular 2 (no CLI) web application for Epicodus code school Friday assignment.  
 
 It is built with ARIA - ["Web Accessibility Initiative – Accessible Rich Internet Applications"](https://www.w3.org/TR/wai-aria/) - as a foundational principle. This is my first conscious attempt to include ARIA into a web application.
 
-Tabindex=0 and Aria-Label are my best friends.
 
-### _Please test my app with VoiceOver on Mac. `Start up VoiceOver with Command+F5 on Mac`_
+### _In order to test ARIA, please use a screen reader to checkout the application. I used VoiceOver on Mac for testing purposes._
+
+```
+While in your browser, start up VoiceOver with Command+F5 on Mac
+```
+
+As you tab through to navigate the page with our keyboard, you will reach an animal image.
+
+![Zoo of Mythical Creatures](./resources/images/voiceOverDirections.jpg)
+
+* The audio will describe total animals displayed, depending on filter results.
+
+* To explore the "image list 4 items", use the following keyboard command.
+
+```
+CTRL+Option+ Right Arrow
+```
+
 
 As a user of this Zoo App
 
@@ -62,10 +78,6 @@ Edit Current Animal
 | ---------| -----------------|-----------------|
 |create a new Animal Object|new Animal(params)| Animal |
 
-### 6. UX/UI
-
-  After all above functionality is established, think about styling and UI.
-
 # Technologies
 
 
@@ -109,7 +121,7 @@ gulp serve
 
 ## Further Exploration
 
-The code isn't efficient. 
+The code isn't efficient. The filtering mechanism runs extra loops that are not necessary.
 
 ## License
 

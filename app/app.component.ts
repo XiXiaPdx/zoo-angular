@@ -6,24 +6,27 @@ declare var jQuery: any;
 @Component({
   selector: 'app-root',
   template: `
+  <!--This is the side nav that pushes out. Holds the Add Animal or Edit Animal form. -->
   <md-sidenav-container class="add-animal">
-  <md-sidenav #sidenav class="example-sidenav" mode="over">
-  <add-animal *ngIf="addAnimal" (newAnimalSender)="addNewAnimal($event)" (sideNavCloseSender)="sidenav.close()"></add-animal>
-  <edit-animal *ngIf="editAnimal" [editThisAnimal] = "selectedEditAnimal" (closeSideNavSender)="sidenav.close()" (updateAnimalSender)="updateAnimal($event)"></edit-animal>
-  </md-sidenav>
-  <div class="row" id="titleHeader">
-    <h1 tabindex="0"> Zoo of Mythical Creatures </h1>
-        <button class="btn" (click)="openAddAnimalForm(); sidenav.open()"  tabindex="0" aria-label="Add New Animal"> Add New Animal</button>
-  </div>
-
-  <div class="row">
-    <div class="col s9  scale-transition {{scale}}">
-    <filtered-animals  [filteredAnimalList]="masterAnimalList|filterByAge:age:youngerOlder" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
+    <md-sidenav #sidenav class="example-sidenav" mode="over">
+      <add-animal *ngIf="addAnimal" (newAnimalSender)="addNewAnimal($event)" (sideNavCloseSender)="sidenav.close()"></add-animal>
+      <edit-animal *ngIf="editAnimal" [editThisAnimal] = "selectedEditAnimal" (closeSideNavSender)="sidenav.close()" (updateAnimalSender)="updateAnimal($event)"></edit-animal>
+    </md-sidenav>
+    <!--Title header with Add new Animal button -->
+    <div class="row" id="titleHeader">
+      <h1 tabindex="0"> Zoo of Mythical Creatures </h1>
+      <button class="btn" (click)="openAddAnimalForm(); sidenav.open()"  tabindex="0" aria-label="Add New Animal"> Add New Animal</button>
     </div>
-    <div class="col s3" id="filterColumn">
-      <filter-tool (filterSender)="filterMasterList($event)"></filter-tool>
+    <!--Display for list of animals, with current filter applied. -->
+    <div class="row">
+      <div class="col s9  scale-transition {{scale}}">
+        <filtered-animals  [filteredAnimalList]="masterAnimalList|filterByAge:age:youngerOlder" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
+      </div>
+      <!--Filter tool for animals, by Age -->
+      <div class="col s3" id="filterColumn">
+        <filter-tool (filterSender)="filterMasterList($event)"></filter-tool>
+      </div>
     </div>
-  </div>
   </md-sidenav-container>
   `
 })
@@ -48,32 +51,25 @@ openAddAnimalForm(){
   this.editAnimal = false;
   this.addAnimal = true;
 }
-
 openEditAnimalForm(updatePackage){
   this.editAnimal = true;
   this.addAnimal = false;
   this.indexOfEditAnimal = updatePackage[0];
   this.selectedEditAnimal = updatePackage[1];
 }
-
 filterMasterList (filterPackage){
   this.youngerOlder = filterPackage [1];
   this.age = filterPackage[0];
   this.transitionInOut();
 }
-
 addNewAnimal(animal){
   this.masterAnimalList.unshift(animal);
   this.transitionInOut();
-
 }
-
 updateAnimal (updateThisAnimal){
   this.masterAnimalList[this.indexOfEditAnimal]=updateThisAnimal;
   this.transitionInOut();
-
 }
-
 transitionInOut(){
   var self=this;
   var appear = function(){
@@ -86,6 +82,5 @@ transitionInOut(){
     setTimeout(function(){
       appear();
     }, 500);
-}
-
+  }
 }

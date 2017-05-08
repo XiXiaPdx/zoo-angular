@@ -37,8 +37,9 @@ import {Animal} from './Animal.model';
     <div class="input-field" >
      <input  value="{{editThisAnimal.imageUrl}}" tabindex="0" type="text" class="validate" #imageUrl>
     </div>
-<button class="btn btn-large"  tabindex="0" (click)="updateAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, likes.value, dislikes.value, sex.value, imageUrl.value); closeSideNav()">Update Animal </button>
-<button class="btn btn-large"  (click)="closeSideNav()" tabindex="0" [attr.aria-label]="'Close Edit Form'"> Close </button>  </md-card>
+    <button class="btn btn-large"  tabindex="0" (click)="updateAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, likes.value, dislikes.value, sex.value, imageUrl.value); closeSideNav()">Update Animal </button>
+    <button class="btn btn-large"  (click)="closeSideNav()" tabindex="0" [attr.aria-label]="'Close Edit Form'"> Close </button>
+  </md-card>
 
   `
 })
