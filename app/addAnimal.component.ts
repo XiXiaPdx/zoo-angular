@@ -9,6 +9,7 @@ import {Animal} from './Animal.model';
   <md-card id="addAnimalForm" >
     <md-card-title tabindex="0" aria-label="New Animal Details Form">	 New Animal Details  </md-card-title>
     <form ngNativeValidate #form="ngForm" (ngSubmit)="submitForm(form.value); this.form.reset(); closeSideNav()">
+
     <div class="row">
       <div class="col s6">
         <div class="input-field" >
@@ -52,9 +53,10 @@ import {Animal} from './Animal.model';
         </div>
       </div>
       <div class="col s6">
-      <div class="input-field" >
         <div class="input-field" >
-         <input  placeholder="Dislikes" aria-label="Add animal dislikes" tabindex="0"  type="text"  ngModel name="dislikes" required>
+          <div class="input-field" >
+           <input  placeholder="Dislikes" aria-label="Add animal dislikes" tabindex="0"  type="text"  ngModel name="dislikes" required>
+          </div>
         </div>
       </div>
     </div>
@@ -70,9 +72,10 @@ import {Animal} from './Animal.model';
        <input    tabindex="0" type="text" [(ngModel)]="url" name="imageUrl" aria-label="Add image URL for animal">
     </div>
       <button type="submit" class="btn btn-large" tabindex="0" [attr.aria-label]="'Submit Form For New Animal'">Submit</button>
-      <button type="button" class="btn btn-large"  (click)="closeSideNav(); this.form.reset()" tabindex="0" [attr.aria-label]="'Close Form'">Close</button>
-    </form>
 
+      <button type="button" class="btn btn-large"  (click)="closeSideNav(); this.form.reset()" tabindex="0" [attr.aria-label]="'Close Form'">Close</button>
+
+    </form>
   </md-card>
 
   `
@@ -89,7 +92,6 @@ closeSideNav(){
 }
 
 submitForm(form: any): void{
-  console.log(form);
   var newAnimal = new Animal (form.species, form.name, parseInt(form.age), form.diet, form.location, parseInt(form.caretakers),  form.sex, form.likes, form.dislikes,form.imageUrl);
   this.newAnimalSender.emit(newAnimal);
   }

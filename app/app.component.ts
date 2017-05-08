@@ -23,7 +23,7 @@ declare var jQuery: any;
         <filtered-animals  [filteredAnimalList]="masterAnimalList|filterByAge:age:youngerOlder" (editAnimalSender)="openEditAnimalForm($event); sidenav.open()"></filtered-animals>
       </div>
       <!--Filter tool for animals, by Age -->
-      <div class="col s3" id="filterColumn">
+      <div class="col m3" id="filterColumn">
         <filter-tool (filterSender)="filterMasterList($event)"></filter-tool>
       </div>
     </div>

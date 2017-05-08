@@ -144,6 +144,7 @@ height: 156px;
 
 .input-field label:not(.label-icon).active {
   font-size: 1rem;
+  color: yellow;
 }
 
 .sexRadio{
