@@ -80,7 +80,7 @@ import {Animal} from './Animal.model';
      <input    tabindex="0" type="text" [(ngModel)]="editThisAnimal.imageUrl" name="imageUrl" aria-label="Add image URL for animal">
   </div>
     <button type="submit" class="btn btn-large" tabindex="0" [attr.aria-label]="'Update Animal Submit Button'">Update</button>
-    <button type="button" class="btn btn-large"  (click)="closeSideNav(); this.form.reset()" tabindex="0" [attr.aria-label]="'Close Form'">Close</button>
+    <button type="button" class="btn btn-large"  (click)="closeSideNav();false" tabindex="0" [attr.aria-label]="'Close Form'">Close</button>
   </form>
   </md-card>
 
