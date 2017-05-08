@@ -5,13 +5,13 @@ This is an Angular 2 (no CLI) web application for Epicodus code school Friday as
 It is built with ARIA - ["Web Accessibility Initiative – Accessible Rich Internet Applications"](https://www.w3.org/TR/wai-aria/) - as a foundational principle. This is my first conscious attempt to include ARIA into a web application.
 
 
-### _In order to test ARIA, please use a screen reader to checkout the application. I used VoiceOver on Mac for testing purposes._
+##### In order to test ARIA, please use a screen reader to checkout the application. I used VoiceOver on Mac for testing purposes.
 
 ```
 While in your browser, start up VoiceOver with Command+F5 on Mac
 ```
 
-As you tab through to navigate the page with our keyboard, you will reach an animal image.
+As you tab through to navigate the page with your keyboard, you will reach an animal image.
 
 ![Zoo of Mythical Creatures](./resources/images/voiceOverDirections.jpg)
 
@@ -30,7 +30,7 @@ As a user of this Zoo App
 
 * I want to view a list of animals I have logged.
 
-* I want options to view all animals, only young animals (less than 2 years of age), or only mature animals (more than 2 years of age).
+* I want options to view all animals, filter animals for younger or older based on any age choice.
 
 * I want to click an animal to edit its name, age or caretakers.
 
@@ -40,17 +40,14 @@ As a user of this Zoo App
 
 ### 2. Study ARIA.
 
-* # VoiceReader will usually refer to aria-label for audio output. [Examples of aria-label vs aria-labelledby vs aria-describedby](http://www.maxability.co.in/2013/01/aria-label-labelledby-describedby/)
+*  VoiceReader will usually refer to aria-label for audio output. [Examples of aria-label vs aria-labelledby vs aria-describedby](http://www.maxability.co.in/2013/01/aria-label-labelledby-describedby/)
 
 
-* # Include role="button" on non-button elements acting like buttons.
+*  Include role="button" on non-button elements acting like buttons.
 
-* # Setting focus on tabbed to elements. [Good reference here using a simple CSS trick/](https://css-tricks.com/almanac/selectors/f/focus/)  
+*  Setting focus on tabbed to elements. [Good reference here using a simple CSS trick/](https://css-tricks.com/almanac/selectors/f/focus/)  
 
-* # To globally change what focus looks, :focus {/* add your css code here*/}
-
-Check site with VoiceOver on Mac and see if it informs well with sound and also all pertinent elements are able to be tabbed to and acted upon.
-
+* To globally change what focus looks like, :focus {/* add your css code here*/}
 
 ### 3. Design Considerations
 
@@ -80,6 +77,8 @@ Edit Current Animal
 
 # Technologies
 
+Angular 2, TypeScript, JavaScript, Jquery, HTML5, CSS
+[Angular Material](https://material.angular.io/) and [Materialize](http://materializecss.com/) for front-end css frameworks.
 
 ## Prerequisites
 
